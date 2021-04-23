@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_nav_graph"
+    app:startDestination="@id/modeFragment">
+    <fragment
+        android:id="@+id/gridFragment"
+        android:name="com.shivtej.tictactoe.ui.fragment.PlayerVsCPUGridFragment"
+        android:label="fragment_grid"
+        tools:layout="@layout/fragment_player_vs_cpu_grid" />
+    <fragment
+        android:id="@+id/modeFragment"
+        android:name="com.shivtej.tictactoe.ui.fragment.ModeFragment"
+        android:label="ModeFragment" >
+        <action
+            android:id="@+id/action_modeFragment_to_gridFragment"
+            app:destination="@id/gridFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_modeFragment_to_playerVsPlayerGridFragment"
+            app:destination="@id/playerVsPlayerGridFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerVsPlayerGridFragment"
+        android:name="com.shivtej.tictactoe.ui.fragment.PlayerVsPlayerGridFragment"
+        android:label="fragment_player_vs_player_grid"
+        tools:layout="@layout/fragment_player_vs_player_grid" >
+        <argument
+            android:name="player1"
+            app:argType="string" />
+        <argument
+            android:name="player2"
+            app:argType="string" />
+    </fragment>
+</navigation>
